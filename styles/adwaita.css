@@ -1,0 +1,159 @@
+/* Khrowno Backup Tool - Adwaita Theme
+ * Default GNOME theme style
+ * 
+ * References:
+ * - GNOME HIG: https://developer.gnome.org/hig/
+ * - Adwaita: https://gitlab.gnome.org/GNOME/libadwaita
+ */
+
+/* Window styling */
+window {
+    background-color: #fafafa;
+}
+
+/* Header bar */
+headerbar {
+    background: linear-gradient(to bottom, #f6f5f4, #edebe9);
+    border-bottom: 1px solid #cdc7c2;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+headerbar .title {
+    color: #2e3436;
+    font-weight: 700;
+}
+
+/* Main content */
+.content-area {
+    background-color: #ffffff;
+    padding: 18px;
+}
+
+/* Frames */
+frame {
+    border: 1px solid #d5d0cc;
+    border-radius: 6px;
+    background-color: #ffffff;
+    margin: 6px 0;
+}
+
+frame > label {
+    color: #3584e4;
+    font-weight: 700;
+    padding: 6px 12px;
+}
+
+/* Buttons */
+button {
+    background: linear-gradient(to bottom, #fafafa, #f0f0f0);
+    border: 1px solid #cdc7c2;
+    border-radius: 5px;
+    padding: 6px 12px;
+    color: #2e3436;
+    font-weight: 500;
+}
+
+button:hover {
+    background: linear-gradient(to bottom, #ffffff, #f6f5f4);
+    border-color: #3584e4;
+}
+
+button:active {
+    background: #e0e0e0;
+}
+
+button.suggested-action {
+    background: linear-gradient(to bottom, #3584e4, #2f7cd6);
+    border-color: #1c71d8;
+    color: #ffffff;
+}
+
+button.suggested-action:hover {
+    background: linear-gradient(to bottom, #4a90e8, #3584e4);
+}
+
+button.destructive-action {
+    background: linear-gradient(to bottom, #e01b24, #c01c28);
+    border-color: #a51d2d;
+    color: #ffffff;
+}
+
+/* Entry fields */
+entry {
+    background-color: #ffffff;
+    border: 1px solid #cdc7c2;
+    border-radius: 5px;
+    padding: 6px 10px;
+    color: #2e3436;
+}
+
+entry:focus {
+    border-color: #3584e4;
+    box-shadow: inset 0 0 0 1px #3584e4;
+}
+
+/* Check and radio buttons */
+checkbutton check,
+radiobutton radio {
+    border: 1px solid #cdc7c2;
+    border-radius: 3px;
+    background-color: #ffffff;
+    min-width: 16px;
+    min-height: 16px;
+}
+
+checkbutton:checked check,
+radiobutton:checked radio {
+    background-color: #3584e4;
+    border-color: #3584e4;
+    -gtk-icon-source: -gtk-icontheme("object-select-symbolic");
+    color: #ffffff;
+}
+
+radiobutton radio {
+    border-radius: 50%;
+}
+
+/* Progress bar */
+progressbar {
+    background-color: #e0e0e0;
+    border-radius: 3px;
+    min-height: 6px;
+}
+
+progressbar progress {
+    background: linear-gradient(to bottom, #3584e4, #2f7cd6);
+    border-radius: 3px;
+}
+
+/* Labels */
+label.title-1 {
+    font-size: 20px;
+    font-weight: 800;
+    color: #2e3436;
+}
+
+label.dim-label {
+    color: #929595;
+}
+
+label.error {
+    color: #e01b24;
+}
+
+label.success {
+    color: #26a269;
+}
+
+/* Password strength meter colors */
+progressbar.error trough progress {
+    background-color: #e01b24;
+}
+
+progressbar.warning trough progress {
+    background-color: #f6d32d;
+}
+
+progressbar.success trough progress {
+    background-color: #26a269;
+}

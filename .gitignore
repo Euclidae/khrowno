@@ -1,0 +1,39 @@
+# Zig build artifacts
+zig-cache/
+zig-out/
+.zig-cache/
+
+# Backup files for testing
+*.krowno
+*.khr
+test-backup.*
+test_*.khr
+
+# IDE files
+.vscode/
+.idea/
+.qodo/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Compiled files
+*.o
+*.so
+*.a
+
+# Temporary files
+*.tmp
+*.swp
+*.swo
+*~
+
+# Debug files
+*.dSYM/
+*.pdb
+
+# Local test data
+/test-data/
+/backups/
+/output/

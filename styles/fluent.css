@@ -1,0 +1,553 @@
+/* Khrowno Backup Tool - Fluent Design System
+ * Authentic Microsoft Fluent Design implementation
+ * 
+ * Key Principles:
+ * - Light: Directional lighting and shadows for depth
+ * - Depth: Layered UI with elevation
+ * - Motion: Smooth, purposeful animations
+ * - Material: Acrylic transparency and blur
+ * - Scale: Responsive typography and spacing
+ * 
+ * References:
+ * - Fluent Design: https://www.microsoft.com/design/fluent/
+ * - GTK4 CSS: https://docs.gtk.org/gtk4/css-properties.html
+ */
+
+/* === FLUENT DEPTH LAYERS === */
+/* Layer 0: Base canvas */
+window {
+    background-color: #f3f3f3;
+    background-image: linear-gradient(135deg, #f3f3f3 0%, #e8e8e8 100%);
+}
+
+/* Layer 1: Acrylic header with blur effect */
+headerbar {
+    background: linear-gradient(180deg, 
+        rgba(255, 255, 255, 0.9) 0%, 
+        rgba(243, 243, 243, 0.85) 100%);
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 
+        0 0.3px 0.9px rgba(0, 0, 0, 0.07),
+        0 1.6px 3.6px rgba(0, 0, 0, 0.11);
+    padding: 8px 16px;
+    min-height: 48px;
+}
+
+headerbar .title {
+    color: #1f1f1f;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: -0.01em;
+}
+
+/* Layer 2: Content area with subtle texture */
+.content-area {
+    background-color: #fafafa;
+    background-image: 
+        radial-gradient(circle at 20% 50%, rgba(0, 120, 212, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(0, 120, 212, 0.02) 0%, transparent 50%);
+    padding: 24px;
+}
+
+/* === FLUENT CARDS (Frames) === */
+/* Layer 3: Elevated cards with acrylic material */
+frame {
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.95) 0%, 
+        rgba(255, 255, 255, 0.9) 100%);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    box-shadow: 
+        0 0.3px 0.9px rgba(0, 0, 0, 0.04),
+        0 1.6px 3.6px rgba(0, 0, 0, 0.07),
+        0 6.4px 14.4px rgba(0, 0, 0, 0.09);
+    margin: 12px 0;
+    padding: 16px;
+    transition: all 250ms cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+frame:hover {
+    box-shadow: 
+        0 0.6px 1.8px rgba(0, 0, 0, 0.05),
+        0 3.2px 7.2px rgba(0, 0, 0, 0.08),
+        0 12.8px 28.8px rgba(0, 0, 0, 0.11);
+    transform: translateY(-1px);
+}
+
+frame > border {
+    border: none;
+}
+
+frame > label {
+    color: #0078d4;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.01em;
+    padding: 0 0 12px 0;
+}
+
+/* === FLUENT BUTTONS === */
+/* Reveal highlight effect on hover */
+button {
+    background: linear-gradient(180deg, #ffffff 0%, #f8f8f8 100%);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 4px;
+    padding: 10px 20px;
+    min-height: 32px;
+    color: #1f1f1f;
+    font-weight: 500;
+    font-size: 14px;
+    box-shadow: 
+        0 0.3px 0.9px rgba(0, 0, 0, 0.04),
+        0 1.6px 3.6px rgba(0, 0, 0, 0.06);
+    transition: all 150ms cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+/* Reveal highlight - light source from cursor */
+button:hover {
+    background: linear-gradient(180deg, #ffffff 0%, #f5f5f5 100%);
+    border-color: rgba(0, 120, 212, 0.4);
+    box-shadow: 
+        0 0.6px 1.8px rgba(0, 0, 0, 0.05),
+        0 3.2px 7.2px rgba(0, 120, 212, 0.12);
+    transform: translateY(-1px);
+}
+
+button:active {
+    background: #f0f0f0;
+    box-shadow: 
+        inset 0 0.3px 0.9px rgba(0, 0, 0, 0.08),
+        inset 0 1.6px 3.6px rgba(0, 0, 0, 0.11);
+    transform: translateY(0);
+    transition: all 50ms;
+}
+
+/* Accent button - Fluent blue */
+button.suggested-action {
+    background: linear-gradient(180deg, #0078d4 0%, #0067b8 100%);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: #ffffff;
+    font-weight: 600;
+    box-shadow: 
+        0 0.3px 0.9px rgba(0, 120, 212, 0.2),
+        0 1.6px 3.6px rgba(0, 120, 212, 0.3);
+}
+
+button.suggested-action:hover {
+    background: linear-gradient(180deg, #1084d8 0%, #0078d4 100%);
+    box-shadow: 
+        0 0.6px 1.8px rgba(0, 120, 212, 0.25),
+        0 3.2px 7.2px rgba(0, 120, 212, 0.35),
+        0 6.4px 14.4px rgba(0, 120, 212, 0.25);
+    transform: translateY(-2px);
+}
+
+button.suggested-action:active {
+    background: #005a9e;
+    box-shadow: 
+        inset 0 0.3px 0.9px rgba(0, 0, 0, 0.2),
+        inset 0 1.6px 3.6px rgba(0, 0, 0, 0.3);
+    transform: translateY(0);
+}
+
+/* Destructive action - Fluent red */
+button.destructive-action {
+    background: linear-gradient(180deg, #e81123 0%, #d00515 100%);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: #ffffff;
+    font-weight: 600;
+}
+
+button.destructive-action:hover {
+    background: linear-gradient(180deg, #f01525 0%, #e81123 100%);
+    box-shadow: 
+        0 0.6px 1.8px rgba(232, 17, 35, 0.25),
+        0 3.2px 7.2px rgba(232, 17, 35, 0.35);
+    transform: translateY(-1px);
+}
+
+/* === FLUENT INPUT FIELDS === */
+/* Elevated input with reveal border */
+entry {
+    background: linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.12);
+    border-radius: 4px;
+    padding: 10px 12px;
+    min-height: 32px;
+    color: #1f1f1f;
+    font-size: 14px;
+    box-shadow: 
+        inset 0 0.3px 0.9px rgba(0, 0, 0, 0.02),
+        0 0.3px 0.9px rgba(0, 0, 0, 0.04);
+    transition: all 200ms cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+entry:focus {
+    background: #ffffff;
+    border-color: rgba(0, 120, 212, 0.3);
+    border-bottom-color: #0078d4;
+    box-shadow: 
+        inset 0 0.3px 0.9px rgba(0, 0, 0, 0.02),
+        0 0 0 1px rgba(0, 120, 212, 0.1),
+        0 0.6px 1.8px rgba(0, 120, 212, 0.15),
+        0 3.2px 7.2px rgba(0, 120, 212, 0.2);
+    outline: none;
+}
+
+entry:disabled {
+    background: linear-gradient(180deg, #f5f5f5 0%, #f0f0f0 100%);
+    border-color: rgba(0, 0, 0, 0.05);
+    color: #8a8a8a;
+    box-shadow: none;
+}
+
+/* === FLUENT CHECKBOXES & RADIOS === */
+checkbutton, radiobutton {
+    padding: 8px;
+}
+
+checkbutton check,
+radiobutton radio {
+    border: 2px solid rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    background: linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
+    min-width: 20px;
+    min-height: 20px;
+    box-shadow: 
+        inset 0 0.3px 0.9px rgba(0, 0, 0, 0.04),
+        0 0.3px 0.9px rgba(0, 0, 0, 0.04);
+    transition: all 150ms cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+checkbutton:hover check,
+radiobutton:hover radio {
+    border-color: rgba(0, 120, 212, 0.5);
+    background: #ffffff;
+    box-shadow: 
+        inset 0 0.3px 0.9px rgba(0, 0, 0, 0.04),
+        0 0.6px 1.8px rgba(0, 120, 212, 0.1);
+}
+
+checkbutton:checked check,
+radiobutton:checked radio {
+    background: linear-gradient(180deg, #0078d4 0%, #0067b8 100%);
+    border-color: #0078d4;
+    box-shadow: 
+        inset 0 0.3px 0.9px rgba(0, 0, 0, 0.1),
+        0 0.3px 0.9px rgba(0, 120, 212, 0.2),
+        0 1.6px 3.6px rgba(0, 120, 212, 0.3);
+    -gtk-icon-source: -gtk-icontheme("object-select-symbolic");
+    color: #ffffff;
+}
+
+radiobutton radio {
+    border-radius: 50%;
+}
+
+/* === FLUENT PROGRESS BAR === */
+/* Animated gradient with glow */
+progressbar {
+    border-radius: 4px;
+    background: linear-gradient(90deg, #e8e8e8 0%, #f0f0f0 100%);
+    min-height: 4px;
+    box-shadow: inset 0 0.3px 0.9px rgba(0, 0, 0, 0.08);
+}
+
+progressbar progress {
+    background: linear-gradient(90deg, 
+        #0078d4 0%, 
+        #1084d8 25%,
+        #00bcf2 50%,
+        #1084d8 75%,
+        #0078d4 100%);
+    background-size: 200% 100%;
+    border-radius: 4px;
+    min-height: 4px;
+    box-shadow: 
+        0 0 8px rgba(0, 120, 212, 0.4),
+        0 0 16px rgba(0, 188, 242, 0.2);
+    animation: fluent-progress-shimmer 2s linear infinite;
+}
+
+@keyframes fluent-progress-shimmer {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+}
+
+progressbar trough {
+    background: linear-gradient(90deg, #e8e8e8 0%, #f0f0f0 100%);
+    border-radius: 4px;
+}
+
+/* === FLUENT TYPOGRAPHY === */
+/* Based on Microsoft's type ramp */
+label {
+    color: #1f1f1f;
+    letter-spacing: -0.01em;
+}
+
+/* Display - Hero text */
+label.title-1 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #1f1f1f;
+    margin: 16px 0 8px 0;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+
+/* Title - Section headers */
+label.title-2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1f1f1f;
+    margin: 12px 0 6px 0;
+    letter-spacing: -0.015em;
+    line-height: 1.3;
+}
+
+/* Subtitle - Supporting text */
+label.title-3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1f1f1f;
+    letter-spacing: -0.01em;
+}
+
+/* Body - Default text */
+label.body {
+    font-size: 14px;
+    font-weight: 400;
+    color: #1f1f1f;
+    line-height: 1.5;
+}
+
+/* Caption - Secondary text */
+label.dim-label {
+    font-size: 12px;
+    font-weight: 400;
+    color: #707070; /* darkened from #8a8a8a for better readability */
+    letter-spacing: 0;
+}
+
+/* Semantic colors */
+label.error {
+    color: #e81123;
+    font-weight: 500;
+}
+
+label.success {
+    color: #107c10;
+    font-weight: 500;
+}
+
+label.warning {
+    color: #ff8c00;
+    font-weight: 500;
+}
+
+label.info {
+    color: #0078d4;
+    font-weight: 500;
+}
+
+/* === FLUENT SCROLLED WINDOWS === */
+scrolledwindow {
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    background: #ffffff;
+    box-shadow: 
+        inset 0 0.3px 0.9px rgba(0, 0, 0, 0.04),
+        0 0.3px 0.9px rgba(0, 0, 0, 0.04);
+}
+
+scrolledwindow scrollbar {
+    background: transparent;
+    border: none;
+}
+
+scrolledwindow scrollbar slider {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    min-width: 8px;
+    min-height: 40px;
+    transition: all 150ms ease;
+}
+
+scrolledwindow scrollbar slider:hover {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+scrolledwindow scrollbar slider:active {
+    background: rgba(0, 120, 212, 0.6);
+}
+
+/* === FLUENT TOOLTIPS === */
+/* Acrylic tooltip with depth */
+tooltip {
+    background: linear-gradient(135deg, 
+        rgba(45, 45, 45, 0.95) 0%, 
+        rgba(31, 31, 31, 0.98) 100%);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 12px;
+    font-weight: 400;
+    box-shadow: 
+        0 0.3px 0.9px rgba(0, 0, 0, 0.2),
+        0 1.6px 3.6px rgba(0, 0, 0, 0.3),
+        0 6.4px 14.4px rgba(0, 0, 0, 0.4);
+}
+
+tooltip label {
+    color: #ffffff;
+}
+
+/* === FLUENT SEPARATORS === */
+separator {
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(0, 0, 0, 0.08) 50%, 
+        transparent 100%);
+    min-width: 1px;
+    min-height: 1px;
+}
+
+separator.vertical {
+    min-width: 1px;
+    min-height: 20px;
+}
+
+separator.horizontal {
+    min-width: 20px;
+    min-height: 1px;
+}
+
+/* === FLUENT ACRYLIC MATERIAL === */
+/* Signature Fluent Design acrylic effect (simplified for GTK4) */
+.acrylic {
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.7) 0%, 
+        rgba(243, 243, 243, 0.65) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 
+        inset 0 0 0 1px rgba(255, 255, 255, 0.3),
+        0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.acrylic-dark {
+    background: linear-gradient(135deg, 
+        rgba(31, 31, 31, 0.8) 0%, 
+        rgba(20, 20, 20, 0.85) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 
+        inset 0 0 0 1px rgba(255, 255, 255, 0.05),
+        0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* === FLUENT DROPDOWNS & COMBOBOXES === */
+/* Dropdown button */
+combobox button {
+    background: linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.12);
+    color: #1f1f1f;
+}
+
+combobox button:hover {
+    border-color: rgba(0, 120, 212, 0.3);
+    border-bottom-color: #0078d4;
+}
+
+/* Dropdown menu/popover */
+popover.menu,
+popover.background {
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 8px;
+    padding: 4px;
+    box-shadow: 
+        0 0.6px 1.8px rgba(0, 0, 0, 0.1),
+        0 3.2px 7.2px rgba(0, 0, 0, 0.13),
+        0 12.8px 28.8px rgba(0, 0, 0, 0.17);
+}
+
+/* Dropdown menu items */
+popover.menu modelbutton,
+popover.menu button {
+    background: transparent;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    color: #1f1f1f;
+    font-size: 14px;
+    text-align: left;
+    min-height: 32px;
+}
+
+popover.menu modelbutton:hover,
+popover.menu button:hover {
+    background: rgba(0, 120, 212, 0.08);
+    color: #0078d4;
+}
+
+popover.menu modelbutton:active,
+popover.menu button:active {
+    background: rgba(0, 120, 212, 0.15);
+}
+
+/* Dropdown arrow */
+combobox arrow {
+    color: #1f1f1f;
+    min-width: 16px;
+    min-height: 16px;
+}
+
+/* List items in dropdown */
+list,
+listview {
+    background: transparent;
+    border: none;
+}
+
+list row,
+listview row {
+    background: transparent;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    color: #1f1f1f;
+}
+
+list row:hover,
+listview row:hover {
+    background: rgba(0, 120, 212, 0.08);
+}
+
+list row:selected,
+listview row:selected {
+    background: rgba(0, 120, 212, 0.15);
+    color: #0078d4;
+}
+
+/* === FLUENT ANIMATIONS === */
+/* Smooth entrance animations */
+@keyframes fluent-reveal {
+    0% { opacity: 0; transform: scale(0.95); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* Reveal effect on interactive elements (simplified) */
+.reveal-border {
+    transition: all 200ms cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.reveal-border:hover {
+    box-shadow: 
+        0 0 0 1px rgba(0, 120, 212, 0.3),
+        0 0.6px 1.8px rgba(0, 120, 212, 0.15),
+        0 3.2px 7.2px rgba(0, 120, 212, 0.2);
+}

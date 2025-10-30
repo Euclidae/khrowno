@@ -1,0 +1,586 @@
+/* Khrowno Backup Tool - Metro Design Language
+ * Authentic Windows 8/10 Metro/Modern UI implementation
+ * 
+ * Key Principles:
+ * - Content before chrome: Focus on content, minimal UI
+ * - Typography: Bold, clean, Segoe UI-inspired
+ * - Flat design: No gradients, no shadows, pure colors
+ * - Tiles: Grid-based layout with live tiles
+ * - Fast and fluid: Instant response, no animations
+ * - Authentically digital: Embrace the screen
+ * 
+ * Color Palette:
+ * - Accent: #0078d4 (Windows Blue)
+ * - Dark: #1e1e1e, #2d2d30, #3e3e42
+ * - Semantic: #e81123 (Red), #107c10 (Green), #ff8c00 (Orange)
+ * 
+ * References:
+ * - Metro Design: https://en.wikipedia.org/wiki/Metro_(design_language)
+ * - Windows Design: https://docs.microsoft.com/en-us/windows/apps/design/
+ */
+
+/* === METRO FOUNDATION === */
+/* Pure flat, no gradients, no shadows */
+window {
+    background-color: #1e1e1e;
+    background-image: none;
+}
+
+/* === METRO CHROME BAR === */
+/* Minimal header with accent stripe */
+headerbar {
+    background-color: #2d2d30;
+    border: none;
+    border-left: 4px solid #0078d4;
+    box-shadow: none;
+    padding: 12px 20px;
+    min-height: 48px;
+}
+
+headerbar .title {
+    color: #ffffff;
+    font-weight: 200;
+    font-size: 20px;
+    letter-spacing: 0.5px;
+    text-transform: none;
+}
+
+/* === METRO CONTENT AREA === */
+/* Grid-based layout */
+.content-area {
+    background-color: #252526;
+    padding: 0;
+    margin: 0;
+}
+
+/* === METRO TILES (Frames) === */
+/* Flat tiles with accent borders */
+frame {
+    background-color: #2d2d30;
+    border: none;
+    border-left: 4px solid #0078d4;
+    border-radius: 0;
+    margin: 0;
+    padding: 20px;
+}
+
+frame:hover {
+    background-color: #323236;
+    border-left-color: #1c97ea;
+}
+
+frame > border {
+    border: none;
+}
+
+frame > label {
+    color: #0078d4;
+    font-weight: 200;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 0 0 16px 0;
+}
+
+/* === METRO BUTTONS === */
+/* Pure flat, instant response, no transitions */
+button {
+    background-color: #3e3e42;
+    border: none;
+    border-radius: 0;
+    padding: 14px 28px;
+    min-height: 40px;
+    min-width: 100px;
+    color: #ffffff;
+    font-weight: 300;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    box-shadow: none;
+    transition: none;
+}
+
+button:hover {
+    background-color: #505054;
+}
+
+button:active {
+    background-color: #2d2d30;
+}
+
+/* Accent button - Windows Blue */
+button.suggested-action {
+    background-color: #0078d4;
+    color: #ffffff;
+    font-weight: 400;
+    letter-spacing: 0.8px;
+}
+
+button.suggested-action:hover {
+    background-color: #1c97ea;
+}
+
+button.suggested-action:active {
+    background-color: #005a9e;
+}
+
+/* Destructive button - Windows Red */
+button.destructive-action {
+    background-color: #e81123;
+    color: #ffffff;
+    font-weight: 400;
+}
+
+button.destructive-action:hover {
+    background-color: #f1707a;
+}
+
+button.destructive-action:active {
+    background-color: #c50f1f;
+}
+
+/* === METRO INPUT FIELDS === */
+/* Flat with accent underline */
+entry {
+    background-color: #3e3e42;
+    border: none;
+    border-bottom: 3px solid #0078d4;
+    border-radius: 0;
+    padding: 12px 16px;
+    min-height: 40px;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 300;
+    box-shadow: none;
+    transition: none;
+}
+
+entry:focus {
+    background-color: #3e3e42;
+    border-bottom-color: #1c97ea;
+    box-shadow: none;
+    outline: none;
+}
+
+entry:disabled {
+    background-color: #2d2d30;
+    border-bottom-color: #505054;
+    color: #6e6e6e;
+}
+
+/* === METRO CHECKBOXES & RADIOS === */
+/* Square, flat, bold */
+checkbutton, radiobutton {
+    padding: 10px;
+    color: #ffffff;
+}
+
+checkbutton check,
+radiobutton radio {
+    border: 2px solid #0078d4;
+    border-radius: 0;
+    background-color: transparent;
+    min-width: 24px;
+    min-height: 24px;
+    box-shadow: none;
+    transition: none;
+}
+
+checkbutton:hover check,
+radiobutton:hover radio {
+    background-color: rgba(0, 120, 212, 0.15);
+    border-color: #1c97ea;
+}
+
+checkbutton:checked check,
+radiobutton:checked radio {
+    background-color: #0078d4;
+    border-color: #0078d4;
+    box-shadow: none;
+    -gtk-icon-source: -gtk-icontheme("object-select-symbolic");
+    color: #ffffff;
+}
+
+checkbutton:checked:hover check,
+radiobutton:checked:hover radio {
+    background-color: #1c97ea;
+    border-color: #1c97ea;
+}
+
+/* Radio buttons stay square in Metro */
+radiobutton radio {
+    border-radius: 0;
+}
+
+/* === METRO PROGRESS BAR === */
+/* Flat bar with solid color, no animation */
+progressbar {
+    background-color: #3e3e42;
+    border: none;
+    border-radius: 0;
+    min-height: 6px;
+    box-shadow: none;
+}
+
+progressbar progress {
+    background-color: #0078d4;
+    border: none;
+    border-radius: 0;
+    min-height: 6px;
+    box-shadow: none;
+    transition: none;
+}
+
+progressbar trough {
+    background-color: #3e3e42;
+    border: none;
+    border-radius: 0;
+}
+
+/* Indeterminate progress - simple slide */
+progressbar.pulse progress {
+    background-color: #0078d4;
+}
+
+/* === METRO TYPOGRAPHY === */
+/* Bold, clean, Segoe UI-inspired */
+label {
+    color: #ffffff;
+    letter-spacing: 0;
+}
+
+/* Hero - Large display text */
+label.title-1 {
+    font-size: 42px;
+    font-weight: 100;
+    color: #ffffff;
+    margin: 20px 0 12px 0;
+    letter-spacing: 0.5px;
+    line-height: 1.1;
+}
+
+/* Header - Section titles */
+label.title-2 {
+    font-size: 28px;
+    font-weight: 200;
+    color: #ffffff;
+    margin: 16px 0 8px 0;
+    letter-spacing: 0.3px;
+    line-height: 1.2;
+}
+
+/* Subheader */
+label.title-3 {
+    font-size: 20px;
+    font-weight: 300;
+    color: #ffffff;
+    letter-spacing: 0.2px;
+}
+
+/* Body - Default text */
+label.body {
+    font-size: 15px;
+    font-weight: 300;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+/* Caption - Small text */
+label.dim-label {
+    font-size: 13px;
+    font-weight: 300;
+    color: #c8c8c8; /* improved contrast from #9e9e9e for better visibility */
+    letter-spacing: 0;
+}
+
+/* Semantic colors - Bold and flat */
+label.error {
+    color: #e81123;
+    font-weight: 400;
+}
+
+label.success {
+    color: #107c10;
+    font-weight: 400;
+}
+
+label.warning {
+    color: #ff8c00;
+    font-weight: 400;
+}
+
+label.info {
+    color: #0078d4;
+    font-weight: 400;
+}
+
+/* === METRO SCROLLED WINDOWS === */
+scrolledwindow {
+    background-color: #2d2d30;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+scrolledwindow scrollbar {
+    background: transparent;
+    border: none;
+}
+
+scrolledwindow scrollbar slider {
+    background: #505054;
+    border: none;
+    border-radius: 0;
+    min-width: 12px;
+    min-height: 40px;
+    transition: none;
+}
+
+scrolledwindow scrollbar slider:hover {
+    background: #6e6e6e;
+}
+
+scrolledwindow scrollbar slider:active {
+    background: #0078d4;
+}
+
+/* === METRO TOOLTIPS === */
+/* Flat, bold, accent color */
+tooltip {
+    background-color: #0078d4;
+    color: #ffffff;
+    border: none;
+    border-radius: 0;
+    padding: 10px 14px;
+    font-size: 13px;
+    font-weight: 300;
+    box-shadow: none;
+}
+
+tooltip label {
+    color: #ffffff;
+}
+
+/* === METRO SEPARATORS === */
+/* Bold accent lines */
+separator {
+    background-color: #0078d4;
+    border: none;
+    border-radius: 0;
+    min-width: 2px;
+    min-height: 2px;
+}
+
+separator.vertical {
+    min-width: 2px;
+    min-height: 30px;
+}
+
+separator.horizontal {
+    min-width: 30px;
+    min-height: 2px;
+}
+
+/* === METRO LIVE TILES === */
+/* Signature Metro UI element */
+.metro-tile {
+    background-color: #0078d4;
+    border: none;
+    border-radius: 0;
+    padding: 20px;
+    margin: 4px;
+    min-width: 150px;
+    min-height: 150px;
+    box-shadow: none;
+    transition: none;
+}
+
+.metro-tile:hover {
+    background-color: #1c97ea;
+}
+
+.metro-tile:active {
+    background-color: #005a9e;
+}
+
+/* Tile color variants - Windows accent colors */
+.metro-tile-blue {
+    background-color: #0078d4;
+}
+
+.metro-tile-blue:hover {
+    background-color: #1c97ea;
+}
+
+.metro-tile-green {
+    background-color: #107c10;
+}
+
+.metro-tile-green:hover {
+    background-color: #13a10e;
+}
+
+.metro-tile-red {
+    background-color: #e81123;
+}
+
+.metro-tile-red:hover {
+    background-color: #f1707a;
+}
+
+.metro-tile-orange {
+    background-color: #ff8c00;
+}
+
+.metro-tile-orange:hover {
+    background-color: #ffa929;
+}
+
+.metro-tile-purple {
+    background-color: #881798;
+}
+
+.metro-tile-purple:hover {
+    background-color: #a52bad;
+}
+
+.metro-tile-teal {
+    background-color: #00b7c3;
+}
+
+.metro-tile-teal:hover {
+    background-color: #00d8e6;
+}
+
+/* Wide tile */
+.metro-tile-wide {
+    min-width: 310px;
+    min-height: 150px;
+}
+
+/* Large tile */
+.metro-tile-large {
+    min-width: 310px;
+    min-height: 310px;
+}
+
+/* === METRO COMMAND BAR === */
+/* Bottom app bar */
+.metro-commandbar {
+    background-color: #2d2d30;
+    border-top: 2px solid #0078d4;
+    padding: 12px 20px;
+    box-shadow: none;
+}
+
+/* === METRO PIVOT === */
+/* Tab-like navigation */
+.metro-pivot {
+    background-color: #2d2d30;
+    border-bottom: 2px solid #0078d4;
+    padding: 0;
+}
+
+.metro-pivot-item {
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    padding: 16px 24px;
+    color: #9e9e9e;
+    font-size: 15px;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.metro-pivot-item:hover {
+    color: #ffffff;
+    border-bottom-color: #505054;
+}
+
+.metro-pivot-item.active {
+    color: #ffffff;
+    border-bottom-color: #0078d4;
+    font-weight: 400;
+}
+
+/* === METRO DROPDOWNS & COMBOBOXES === */
+/* Dropdown button */
+combobox button {
+    background-color: #3e3e42;
+    border: none;
+    border-bottom: 3px solid #0078d4;
+    color: #ffffff;
+}
+
+combobox button:hover {
+    background-color: #505054;
+    border-bottom-color: #1c97ea;
+}
+
+/* Dropdown menu/popover */
+popover.menu,
+popover.background {
+    background-color: #2d2d30;
+    border: 2px solid #0078d4;
+    border-radius: 0;
+    padding: 0;
+    box-shadow: none;
+}
+
+/* Dropdown menu items */
+popover.menu modelbutton,
+popover.menu button {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 12px 16px;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 300;
+    text-align: left;
+    min-height: 40px;
+}
+
+popover.menu modelbutton:hover,
+popover.menu button:hover {
+    background-color: #3e3e42;
+}
+
+popover.menu modelbutton:active,
+popover.menu button:active {
+    background-color: #0078d4;
+}
+
+/* Dropdown arrow */
+combobox arrow {
+    color: #ffffff;
+    min-width: 16px;
+    min-height: 16px;
+}
+
+/* List items in dropdown */
+list,
+listview {
+    background: transparent;
+    border: none;
+}
+
+list row,
+listview row {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 12px 16px;
+    color: #ffffff;
+}
+
+list row:hover,
+listview row:hover {
+    background-color: #3e3e42;
+}
+
+list row:selected,
+listview row:selected {
+    background-color: #0078d4;
+    color: #ffffff;
+}

@@ -1,0 +1,172 @@
+/* Khrowno Backup Tool - Nord Theme
+ * Arctic, north-bluish color palette
+ * 
+ * References:
+ * - Nord: https://www.nordtheme.com/
+ * - Color palette: https://www.nordtheme.com/docs/colors-and-palettes
+ */
+
+/* Nord Color Palette */
+/* Polar Night: #2e3440, #3b4252, #434c5e, #4c566a */
+/* Snow Storm: #d8dee9, #e5e9f0, #eceff4 */
+/* Frost: #8fbcbb, #88c0d0, #81a1c1, #5e81ac */
+/* Aurora: #bf616a, #d08770, #ebcb8b, #a3be8c, #b48ead */
+
+window {
+    background-color: #2e3440;
+}
+
+headerbar {
+    background-color: #3b4252;
+    border-bottom: 1px solid #4c566a;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+headerbar .title {
+    color: #eceff4;
+    font-weight: 600;
+}
+
+.content-area {
+    background-color: #2e3440;
+    padding: 16px;
+}
+
+frame {
+    border: 1px solid #4c566a;
+    border-radius: 6px;
+    background-color: #3b4252;
+    margin: 8px 0;
+}
+
+frame > label {
+    color: #88c0d0;
+    font-weight: 600;
+    padding: 8px 12px;
+}
+
+button {
+    background-color: #434c5e;
+    border: 1px solid #4c566a;
+    border-radius: 4px;
+    padding: 8px 16px;
+    color: #eceff4;
+    font-weight: 500;
+}
+
+button:hover {
+    background-color: #4c566a;
+    border-color: #5e81ac;
+}
+
+button:active {
+    background-color: #3b4252;
+}
+
+button.suggested-action {
+    background-color: #5e81ac;
+    border-color: #5e81ac;
+    color: #eceff4;
+}
+
+button.suggested-action:hover {
+    background-color: #81a1c1;
+}
+
+button.destructive-action {
+    background-color: #bf616a;
+    border-color: #bf616a;
+    color: #eceff4;
+}
+
+button.destructive-action:hover {
+    background-color: #d08770;
+}
+
+entry {
+    background-color: #3b4252;
+    border: 1px solid #4c566a;
+    border-radius: 4px;
+    padding: 8px 12px;
+    color: #eceff4;
+}
+
+entry:focus {
+    border-color: #88c0d0;
+    box-shadow: 0 0 0 1px #88c0d0;
+}
+
+checkbutton, radiobutton {
+    color: #eceff4;
+}
+
+checkbutton check,
+radiobutton radio {
+    border: 2px solid #4c566a;
+    border-radius: 3px;
+    background-color: #3b4252;
+    min-width: 18px;
+    min-height: 18px;
+}
+
+checkbutton:checked check,
+radiobutton:checked radio {
+    background-color: #88c0d0;
+    border-color: #88c0d0;
+    -gtk-icon-source: -gtk-icontheme("object-select-symbolic");
+    color: #2e3440;
+}
+
+radiobutton radio {
+    border-radius: 50%;
+}
+
+progressbar {
+    background-color: #3b4252;
+    border-radius: 4px;
+    min-height: 8px;
+}
+
+progressbar progress {
+    background: linear-gradient(to right, #88c0d0, #5e81ac);
+    border-radius: 4px;
+}
+
+label {
+    color: #eceff4;
+}
+
+label.title-1 {
+    font-size: 24px;
+    font-weight: 300;
+    color: #eceff4;
+}
+
+label.dim-label {
+    color: #d8dee9;
+}
+
+label.error {
+    color: #bf616a;
+}
+
+label.success {
+    color: #a3be8c;
+}
+
+scrolledwindow {
+    border: 1px solid #4c566a;
+    border-radius: 4px;
+}
+
+tooltip {
+    background-color: #434c5e;
+    color: #eceff4;
+    border: 1px solid #4c566a;
+    border-radius: 4px;
+    padding: 6px 10px;
+}
+
+separator {
+    background-color: #4c566a;
+}
